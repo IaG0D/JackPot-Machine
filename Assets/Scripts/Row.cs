@@ -19,7 +19,7 @@ public class Row : MonoBehaviour
         StartCoroutine("Rotate");
 
     }
-    private IEnumerable Rotate() {
+    private IEnumerator Rotate() {
         rowStopped = false;
         timeInterval = 0.025f;
         randomValue = Random.Range(60, 100);
