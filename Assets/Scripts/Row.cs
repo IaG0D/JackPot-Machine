@@ -10,9 +10,9 @@ public class Row : MonoBehaviour
     public bool rowStopped; //Verificar se o slot parou
     public string stoppedSlot;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rowStopped = true;
+        GameControl.HandlePulled += StartRotating;
     }
     private void StartRotating() {
         stoppedSlot = "";
@@ -65,9 +65,9 @@ public class Row : MonoBehaviour
         }
         rowStopped = true;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnDestroy() {
+
+        GameControl.HandlePulled -= StartRotating;
+
     }
 }
